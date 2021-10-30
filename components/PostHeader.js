@@ -15,6 +15,7 @@ const PostHeader = ({ props }) => {
         <View style={{ flex: 1, flexDirection: "row", justifyContent: "center" }}>
             <FlatList
                 data={POSTS}
+                keyExtractor={item => item.id.toString()}
                 renderItem={({ item, index }) => {
                     return <View key={index}>
                         <View style={styles.ppphotoview}>
