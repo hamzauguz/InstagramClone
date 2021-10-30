@@ -1,16 +1,24 @@
 import * as React from "react";
-import { View, Text } from "react-native";
+import HomeScreen from "./screens/HomeScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import CommentsScreen from "./screens/CommentsScreen";
+import { Text } from "react-native";
+
+
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Universal React with Expo</Text>
-    </View>
+    <NavigationContainer >
+      <Stack.Navigator initialRouteName={HomeScreen} >
+        <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ title: "Home", headerShown: false }} />
+        <Stack.Screen name="CommentsScreen" component={CommentsScreen} options={{
+          title: "Comments"
+        }} />
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
